@@ -49,11 +49,13 @@ def read_rides_as_dicts(filename):
         rows = csv.reader(f)
         _ = next(rows)  # skip headings
         for row in rows:
+            _, _, year = row[1].split('/')
             record = {
                 "route": row[0],
                 "date": row[1],
                 "daytype": row[2],
-                "rides": int(row[3])
+                "rides": int(row[3]),
+                "year": int(year)
             }
             records.append(record)
 
